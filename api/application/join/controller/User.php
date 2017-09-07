@@ -28,6 +28,9 @@ class User extends Controller
     public function save(Request $request)
     {
         $data = $request->param();
+        $check = $this->validate($data,'User');
+        if(true != $check)
+            abort('422',$check);
 
         if(!$data)
             abort('400',"INVALID REQUEST");
@@ -65,11 +68,15 @@ class User extends Controller
     public function update(Request $request, $id)
     {
         $data = $request->param();
+        $check = $this->validate($data,'User');
+        if(true != $check)
+            abort('422',$check);
+
         if(!$data)
             abort('400',"操作幂等");
-        $data = Users::where('id', $id) -> find();
-            if(!$data)
-                abort('404',"用户不存在");
+
+        if(!Users::where('id', $id) -> find())
+             abort('404',"用户不存在");
 
         $result = Users::update($data, ['id' => $id]);
         return json($result);

@@ -5,9 +5,10 @@
  * Date: 2017/9/2
  * Time: 0:33
  */
-use think\Request;
+
 namespace app\join\exception;
 
+use think\Request;
 use think\exception\Handle;
 use think\exception\HttpException;
 
