@@ -29,7 +29,8 @@ class User extends Controller
     {
         $data = $request->param();
         $check = $this->validate($data,'User');
-        if(true != $check)
+        
+        if(true !== $check)
             abort('422',$check);
 
         if(!$data)
