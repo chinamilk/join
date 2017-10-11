@@ -9,6 +9,9 @@
 // | Author: liu21st <liu21st@gmail.com>
 // +----------------------------------------------------------------------
 
+//允许跨域 HTTP 请求
+header("Access-Control-Allow-Origin: * ");
+header("Access-Control-Allow-Methods: POST, GET, OPTIONS, PUT, DELETE");
 // [ 应用入口文件 ]
 
 // 定义应用目录
